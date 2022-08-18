@@ -1,6 +1,6 @@
 ---
 - name: Getting start date
-  shell: ip a | grep -E "inet"
+  shell: echo "hello"
   register: start_date
 
 - debug:
