@@ -26,6 +26,7 @@
    msg:
       - processor {{ ansible_facts['processor'] }}
       - processor_cores  {{ ansible_facts['processor_cores'] }}
+      - total RAM is {{ ansible_memory_mb.real.total }}
 
 
 # - name: show templating msg
