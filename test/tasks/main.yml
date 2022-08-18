@@ -27,6 +27,14 @@
       - processor {{ ansible_facts['processor'] }}
       - processor_cores  {{ ansible_facts['processor_cores'] }}
       - total RAM is {{ ansible_memory_mb.real.total }}
+      - Mem free is {{ ansible_facts['memfree_mb'] }}
+
+
+
+- name: system devices
+  debug:
+   msg:
+      - devices {{ ansible_facts['devices'] }}
 
 
 # - name: show templating msg
@@ -44,4 +52,7 @@
     msg: information about RAM {{  output.stdout  }}
 
 
+- name: Output disk information
+  debug:
+    var: hostvars[inventory_hostname].ansible_devices
 
