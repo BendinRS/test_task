@@ -1,4 +1,8 @@
 ---
+- name: Print all available facts
+  debug:
+    var: ansible_facts
+    
 - name: Getting start date
   shell: echo "hello"
   register: start_date
