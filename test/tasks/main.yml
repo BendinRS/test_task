@@ -14,4 +14,4 @@
   register: mem
   debug:
     msg:
-      - "{{  mem.stdout  }}"
+      - "{{  mem }}"
