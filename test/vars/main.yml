@@ -1,0 +1,6 @@
+---
+# vars file for test
+    setting: a_val
+    feature:
+      enabled: true
+    another_setting: b_val
