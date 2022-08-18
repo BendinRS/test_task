@@ -1,6 +1,6 @@
 ---
 - name: Getting start date
-  shell: date +%b%Y%H%M
+  shell: echo "Hello"
   register: start_date
 
 - debug:
