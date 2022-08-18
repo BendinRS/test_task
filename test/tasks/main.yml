@@ -10,4 +10,4 @@
   tasks:
     - name: pause with render
       pause:
-      prompt: "{{ lookup('template', './files/test.j2') }}"
+      prompt: "{{ lookup('template', 'test.j2') }}"
