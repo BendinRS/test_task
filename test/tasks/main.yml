@@ -7,8 +7,8 @@
 #   shell: echo "hello"
 #   register: start_date
 
-- debug:
-    var: "{{ start_date.stdout }}"
+# - debug:
+#     var: "{{ start_date.stdout }}"
 - name: show templating results
   debug:
    msg: "{{ lookup('template', 'hostname_ip.j2') }}"
