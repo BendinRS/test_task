@@ -21,7 +21,7 @@
 #   debug:
 #     msg: "{{ lookup('template', './hostname_ip.j2', jinja2_native=True) }}"
 
-- name: show templating msg
+- name: vars RAM
   shell: cat /proc/meminfo | grep -E "Mem"
   register: output
   # loop:
@@ -30,6 +30,6 @@
   #    - MemAvailable
 
 
-- name: Debug
+- name: RAM
   debug:
-    var: output.stdout
+    msg: information about RAM {{  output.stdout  }}
