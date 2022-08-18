@@ -22,9 +22,15 @@
     msg: "{{ lookup('template', './hostname_ip.j2', jinja2_native=True) }}"
 
 - name: show templating msg
-  shell: cat /proc/meminfo | grep MemTotal
+  shell: cat /proc/meminfo | grep "{{ item }}"
   register: output
-
-- name: Debug
+  loop:
+     - MemTotal
+     - MemFree
+     - MemAvailable
   debug:
-    var: output.stdout
+    var: services_state
+
+# - name: Debug
+#   debug:
+#     var: output.stdout
