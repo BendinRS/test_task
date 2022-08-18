@@ -1,5 +1,9 @@
 ---
 
+- name: Print all available facts
+  ansible.builtin.debug:
+    var: ansible_facts
+
 - name: Collecting facts
   debug:
    msg:
@@ -34,6 +38,3 @@
   debug:
     msg: information about RAM {{  output.stdout  }}
 
-- name: Print all available facts
-  ansible.builtin.debug:
-    var: ansible_facts
