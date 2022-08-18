@@ -1,5 +1,13 @@
 ---
-- name: Print the gateway for each host when defined
-  ansible.builtin.debug:
-    msg: System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}
-  when: ansible_default_ipv4.gateway is defined
+- name: demo the template
+  hosts: localhost
+  gather_facts: false
+  vars:
+    setting: a_val
+    feature:
+      enabled: true
+    another_setting: b_val
+  tasks:
+    - name: pause with render
+      pause:
+      prompt: "{{ lookup('template', './files/test.j2') }}"
