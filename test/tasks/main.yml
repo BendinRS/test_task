@@ -38,7 +38,7 @@
 
 - name: List all ports
   ansible.builtin.debug:
-    msg: "{{ (ansible_facts.tcp_listen + ansible_facts.udp_listen) | map(attribute='port') | unique | sort | list }}"
+    msg: "{{ (ansible_facts.tcp_listen + ansible_facts.udp_listen) }}"
 
 # - name: show templating msg
 #   debug:
