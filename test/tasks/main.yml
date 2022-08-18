@@ -1,17 +1,21 @@
 ---
 
-- name: Collecting facts
-  debug:
-   msg:
-      - The hostname of this machine {{  inventory_hostname  }}
-      - ip addresses of the machine {{ ansible_facts['all_ipv4_addresses'] }}
-      - architecture  {{ ansible_facts['architecture'] }}
-      - kernel version {{ ansible_facts['kernel'] }}
-      - distribution {{ ansible_facts['distribution'] }}
+# - name: Collecting facts
+#   debug:
+#    msg:
+#       - The hostname of this machine {{  inventory_hostname  }}
+#       - ip addresses of the machine {{ ansible_facts['all_ipv4_addresses'] }}
+#       - architecture  {{ ansible_facts['architecture'] }}
+#       - kernel version {{ ansible_facts['kernel'] }}
+#       - distribution {{ ansible_facts['distribution'] }}
 
-- name: services in sysctml
-- shell: cat /proc/meminfo | grep -E "Mem"
-  register: mem
+# - name: services in sysctml
+# - shell: cat /proc/meminfo | grep -E "Mem"
+#   register: mem
+#   debug:
+#     msg:
+#       - "{{  mem }}"
+
+- name: show templating results
   debug:
-    msg:
-      - "{{  mem }}"
+   msg: "{{ lookup('template', 'hostname_ip.j2') }}"
