@@ -26,12 +26,10 @@
 
 
 
-- name: system devices
-  debug:
-   msg:
-      - devices {{ ansible_facts['devices'] }}
-
-
+# - name: system devices
+#   debug:
+#    msg:
+#       - devices {{ ansible_facts['devices'] }}
 
 # - name: show templating msg
 #   debug:
@@ -40,8 +38,6 @@
 - name: vars RAM
   shell: cat /proc/meminfo | grep -E "Mem"
   register: output
-
-
 
 - name: RAM
   debug:
