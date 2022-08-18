@@ -1,4 +1,4 @@
 ---
-- name: pause with render
-  pause:
-  prompt: "{{ lookup('template', 'test.j2') }}"
+- name: show templating results
+  debug:
+   msg: "{{ lookup('template', 'test.j2') }}"
