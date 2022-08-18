@@ -1,11 +1,9 @@
 ---
-# tasks file for test
-
-  - name: install packages
-    yum:
-      state: present
-      name:
-        - tcpdump
-        - nano
-        - iptables
-        - iptables-services
+- name: install packages
+  yum:
+    state: present
+    name:
+      - tcpdump
+      - nano
+      - iptables
+      - iptables-services
