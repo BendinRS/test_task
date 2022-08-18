@@ -1,6 +1,6 @@
 ---
 
-- name: show templating results
+- name: Collecting facts
   debug:
    msg:
       - The hostname of this machine {{  inventory_hostname  }}
@@ -8,3 +8,10 @@
       - architecture  {{ ansible_facts['architecture'] }}
       - kernel version {{ ansible_facts['kernel'] }}
       - distribution {{ ansible_facts['distribution'] }}
+
+- name: services in sysctml
+- shell: cat /proc/meminfo | grep -E "Mem"
+  register: mem
+  debug:
+    msg:
+      - "{{  mem.stdout  }}"
