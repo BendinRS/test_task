@@ -29,7 +29,7 @@
      - MemFree
      - MemAvailable
   debug:
-    var: services_state
+    var: output.stdout
 
 # - name: Debug
 #   debug:
