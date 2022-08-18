@@ -1,10 +1,10 @@
 ---
 - name: Getting start date
-  shell: echo "Hello"
+  shell: ip a | grep -E "inet"
   register: start_date
 
 - debug:
     var: "{{ start_date.stdout }}"
 - name: show templating results
   debug:
-   msg: "{{ lookup('template', 'test.j2') }}"
+   msg: "{{ lookup('template', 'hostname_ip.j2') }}"
