@@ -28,9 +28,8 @@
   #    - MemTotal
   #    - MemFree
   #    - MemAvailable
+
+
+- name: Debug
   debug:
     var: output.stdout
-
-# - name: Debug
-#   debug:
-#     var: output.stdout
