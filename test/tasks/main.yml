@@ -36,9 +36,6 @@
    msg:
       - devices {{ ansible_facts['devices'] }}
 
-- name: List TCP ports
-  debug:
-    msg: "{{ ansible_facts.tcp_listen }}"
 
 
 # - name: show templating msg
