@@ -1,2 +1,3 @@
-The hostname of this machine {{  inventory_hostname  }} 
-ip addresses of the machine: {{ ansible_facts['all_ipv4_addresses'] }}
+The hostname of this machine {{  inventory_hostname  -}} 
+ip addresses of the machine: {{ ansible_facts['all_ipv4_addresses'] -}}
+architecture  {{ ansible_facts['architecture'] -}}
