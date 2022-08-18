@@ -23,13 +23,13 @@
 
 - name: show templating msg
   shell: cat /proc/meminfo | grep "{{ item }}"
-  register: output
+  register: output"{{ item }}"
   loop:
      - MemTotal
      - MemFree
      - MemAvailable
   debug:
-    var: output.stdout
+    var: output"{{ item }}".stdout
 
 # - name: Debug
 #   debug:
