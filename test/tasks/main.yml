@@ -36,10 +36,9 @@
    msg:
       - devices {{ ansible_facts['devices'] }}
 
-- name: Gather facts on all ports and override which command to use
-  community.general.listen_ports_facts:
-    command: 'netstat'
-    include_non_listening: 'yes'
+- name: List TCP ports
+  debug:
+    msg: "{{ ansible_facts.tcp_listen }}"
 
 
 # - name: show templating msg
