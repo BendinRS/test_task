@@ -1,18 +1,22 @@
 ---
 
-- name: Collecting facts
-  debug:
-   msg:
-      - The hostname of this machine {{  inventory_hostname  }}
-      - ip addresses of the machine {{ ansible_facts['all_ipv4_addresses'] }}
-      - architecture  {{ ansible_facts['architecture'] }}
-      - kernel version {{ ansible_facts['kernel'] }}
-      - distribution {{ ansible_facts['distribution'] }}
+# - name: Collecting facts
+#   debug:
+#    msg:
+#       - The hostname of this machine {{  inventory_hostname  }}
+#       - ip addresses of the machine {{ ansible_facts['all_ipv4_addresses'] }}
+#       - architecture  {{ ansible_facts['architecture'] }}
+#       - kernel version {{ ansible_facts['kernel'] }}
+#       - distribution {{ ansible_facts['distribution'] }}
 
-- name: collect facts about system services
-  service_facts:
-  register: services_state
-- name: Debug
-  debug:
-    var: services_state
+# - name: collect facts about system services
+#   service_facts:
+#   register: services_state
+# - name: Debug
+#   debug:
+#     var: services_state
 
+
+- name: show templating msg
+  debug:
+    msg: "{{ lookup('template', './hostname_ip.j2', jinja2_native=True) }}"
