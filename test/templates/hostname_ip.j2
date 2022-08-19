@@ -1,4 +1,5 @@
-The hostname of this machine {{  inventory_hostname  }}
-ip addresses of the machine: {{ ansible_facts['all_ipv4_addresses'] }}
-architecture  {{ ansible_facts['architecture'] }}
-kernel version {{ ansible_facts['kernel'] }}
+
+  The hostname of this machine {{  inventory_hostname  }} replace("\n", "<br/>") 
+  ip addresses of the machine: {{ ansible_facts['all_ipv4_addresses'] }} replace("\n", "<br/>") 
+  architecture  {{ ansible_facts['architecture'] }} replace("\n", "<br/>") 
+  kernel version {{ ansible_facts['kernel'] }} replace("\n", "<br/>") }}
