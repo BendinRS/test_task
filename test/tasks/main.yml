@@ -47,5 +47,3 @@
 # - name: Output disk information
 #   debug:
 #     var: hostvars[inventory_hostname].ansible_devices
->>>>>>> main
-
