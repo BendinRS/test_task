@@ -35,7 +35,7 @@
 
   - name: RAM
     debug:
-     msg: {{  output.stdout  }}
+     msg: "{{  output.stdout  }}"
 
 
 
