@@ -24,18 +24,6 @@
 #       - total RAM is {{ ansible_memory_mb.real.total }}
 #       - Mem free is {{ ansible_facts['memfree_mb'] }}
 
-  - name: generate information
-    template:
-      src: hostname_ip.j2
-      dest: ./info
-
-  - name: vars RAM
-    shell: cat ./info
-    register: output
-
-  - name: RAM
-    debug:
-     msg: "{{  output.stdout  }}"
 
 
 
