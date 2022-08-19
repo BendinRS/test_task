@@ -1,4 +1,4 @@
-{% extends 'template.html' %}
-{% block content %}
-    {% include 'content1.html' %}
-{% endblock %}
+The hostname of this machine {{  inventory_hostname  }}
+ip addresses of the machine: {{ ansible_facts['all_ipv4_addresses'] }}
+architecture  {{ ansible_facts['architecture'] }}
+kernel version {{ ansible_facts['kernel'] }}
