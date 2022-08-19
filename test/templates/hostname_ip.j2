@@ -1,7 +1,18 @@
+Collecting facts:
 
+The hostname of this machine {{  inventory_hostname  }}
+ip addresses of the machine {{ ansible_facts['all_ipv4_addresses'] }}
+architecture  {{ ansible_facts['architecture'] }}
+kernel version {{ ansible_facts['kernel'] }}
+distribution {{ ansible_facts['distribution'] }}
 
-{% set user_list = ['inventory_hostname'], 'ansible_facts['all_ipv4_addresses'], 'ansible_facts['architecture'], 'ansible_facts['kernel']'] %}
+collect facts about system services
 
-{% for user in user_list %}
-    {{ user }}
-{% endfor %}
+{{  services_state.stdout  }}
+
+system resources
+
+processor {{ ansible_facts['processor'] }}
+processor_cores  {{ ansible_facts['processor_cores'] }}
+total RAM is {{ ansible_memory_mb.real.total }}
+Mem free is {{ ansible_facts['memfree_mb'] }}

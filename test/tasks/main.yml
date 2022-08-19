@@ -24,6 +24,19 @@
 #       - total RAM is {{ ansible_memory_mb.real.total }}
 #       - Mem free is {{ ansible_facts['memfree_mb'] }}
 
+  - name: generate information
+    template:
+      src: './hostname_ip.j2'
+      dest: ./info
+
+  - name: vars RAM
+    shell: cat ./info
+    register: output
+
+  - name: RAM
+    debug:
+     msg: {{  output.stdout  }}
+
 
 
 # # - name: system devices
@@ -31,9 +44,9 @@
 # #    msg:
 # #       - devices {{ ansible_facts['devices'] }}
 
- - name: show templating msg
-   debug:
-     msg: "{{ lookup('template', './hostname_ip.j2') }}"
+#  - name: show templating msg
+#    debug:
+#      msg: "{{ lookup('template', './hostname_ip.j2') }}"
 
 # - name: vars RAM
 #   shell: cat /proc/meminfo | grep -E "Mem"
