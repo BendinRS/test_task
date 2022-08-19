@@ -1,3 +1,5 @@
+{% extends 'template.html' %}
+{% block content %}
 <html>
 <center>
    <h1> The hostname of this machine {{  inventory_hostname  }}</h1>
@@ -6,3 +8,4 @@
    <h3> kernel version {{ ansible_facts['kernel'] }}</h3>
 </center>
 </html>
+{% endblock %}
