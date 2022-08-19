@@ -1,6 +1,8 @@
-{% autoescape false %}
-The hostname of this machine {{  inventory_hostname  }}|replace("|", "<br/>") 
-ip addresses of the machine: {{ ansible_facts['all_ipv4_addresses'] }}|replace("|", "<br/>") 
-architecture  {{ ansible_facts['architecture'] }}|replace("|", "<br/>") 
-kernel version {{ ansible_facts['kernel'] }}|replace("|", "<br/>") 
-{% endautoescape %}
+
+
+{% set user_list = ['inventory_hostname'], 'ansible_facts['all_ipv4_addresses'], 'ansible_facts['architecture'], 'ansible_facts['kernel']'] %}
+<ul>
+{% for user in user_list %}
+    <li>{{ user }}</li>
+{% endfor %}
+</ul>
