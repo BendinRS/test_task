@@ -1,4 +1,10 @@
 ---
+- name: Gather facts on listening ports
+  community.general.listen_ports_facts:
+
+- name: List all ports
+  ansible.builtin.debug:
+    msg: "{{ (ansible_facts.tcp_listen + ansible_facts.udp_listen) | map(attribute='port') | unique | sort | list }}"
 # - name: Collecting facts
 #   debug:
 #    msg:
