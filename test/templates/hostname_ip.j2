@@ -1,4 +1,10 @@
+===============================================
+INFORMATION ABOUT THE SYSTEM
+===============================================
 
+
+===============================================
+GENERAL INFORMATION
 
 {% if collecting is defined and collecting %}
 {% for facts in collecting %}{{ facts }}
@@ -11,22 +17,30 @@
 {% endfor %}
 {% endif %}
 
+===============================================
 
-Service facts:
+===============================================
+SERVICE FACTS:
+
 {{ services_state.ansible_facts.services | to_nice_json  }}
 
+===============================================
 
-
+===============================================
 Ports TCP:
 
 {{ ansible_facts.tcp_listen | to_nice_json }}
 
+===============================================
 
 
+===============================================
 Ports UDP:
 
 {{ ansible_facts.udp_listen | to_nice_json }}
 
+===============================================
 
 
+===============================================
 Check users in shell
