@@ -8,12 +8,12 @@
 #       - kernel version {{ ansible_facts['kernel'] }}
 #       - distribution {{ ansible_facts['distribution'] }}
 
-- name: collect facts about system services
-  service_facts:
-  register: services_state
-- name: Debug
-  debug:
-    var: services_state
+# - name: collect facts about system services
+#   service_facts:
+#   register: services_state
+# - name: Debug
+#   debug:
+#     var: services_state
 
 
 
