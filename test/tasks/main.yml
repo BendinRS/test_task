@@ -89,3 +89,7 @@
   register: users_check
 - set_fact:
     shell_out: "{{ users_check.stdout }}"
+
+- name: Output disk information
+  debug:
+    var: users_check.stdout
