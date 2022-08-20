@@ -76,9 +76,8 @@
   shell: cat /etc/passwd | grep -E '/bin/bash|/bin/sh' >> ./hostname_ip
 
 - name: Check tasks in CRON
-  shell: crontab -l
+  shell: crontab -l 2>&1
   register: output_cron
-  ignore_errors: True
 - set_fact:
     cron_out: "{{ output_cron.stdout }}"
 
