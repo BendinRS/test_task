@@ -1,21 +1,19 @@
+
+
 {% if collecting is defined and collecting %}
 {% for facts in collecting %}{{ facts }}
 {% endfor %}
 {% endif %}
+
+
 {% if system is defined and system %}
 {% for resources in system %}{{ resources }}
 {% endfor %}
 {% endif %}
 
 
-
-
-
 Service facts:
 {{ services_state.ansible_facts.services | to_nice_json  }}
-
-
-
 
 
 
@@ -25,10 +23,10 @@ Ports TCP:
 
 
 
-
 Ports UDP:
 
 {{ ansible_facts.udp_listen | to_nice_json }}
+
 
 
 Check users in shell
