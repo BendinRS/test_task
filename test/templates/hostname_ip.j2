@@ -12,25 +12,9 @@
 
 
 Service facts:
-{{ services_state.ansible_facts.services | dict2items  }}
+{{ services_state.ansible_facts.services | items2dict(key_name='services', value_name='name')  }}
 
 
 
 
 
-
-Ports TCP:
-
-{{ ansible_facts.tcp_listen | dict2items }}
-
-
-
-
-Ports UDP:
-
-{{ ansible_facts.udp_listen | dict2items }}
-
-
-Check users in shell
-
-{{  users_shell  }}
