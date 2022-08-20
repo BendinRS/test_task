@@ -1,36 +1,40 @@
+===============================================
+INFORMATION ABOUT THE SYSTEM
+===============================================
+
+GENERAL INFORMATION
+
 {% if collecting is defined and collecting %}
 {% for facts in collecting %}{{ facts }}
 {% endfor %}
 {% endif %}
+
+
 {% if system is defined and system %}
 {% for resources in system %}{{ resources }}
 {% endfor %}
 {% endif %}
 
+SERVICE FACTS:
 
+{{ services_state.ansible_facts.services | to_nice_json  }}
 
+DISK INFORMATION
 
-
-Service facts:
-{{ services_state.ansible_facts.services | dict2items  }}
-
-
-
-
-
+{{  hostvars[inventory_hostname].ansible_devices | to_nice_json  }}
 
 Ports TCP:
 
-{{ ansible_facts.tcp_listen | dict2items }}
-
-
-
+{{ ansible_facts.tcp_listen | to_nice_json }}
 
 Ports UDP:
 
-{{ ansible_facts.udp_listen | dict2items }}
+{{ ansible_facts.udp_listen | to_nice_json }}
 
+CHECK TASK IN CRON
 
-Check users in shell
+{{ cron_out }}
 
-{{  users_shell  }}
+CHECK USERS IN SHELL
+
+{{  shell_out  }}
