@@ -8,3 +8,8 @@
 {% endfor %}
 {% endif %}
 {% endautoescape %}
+
+{% for result in servicestatus.results %}
+Service: {{ result.item }}
+State:   {{ ansible_facts.services['{{ server_facts.services }}.service'].state }} 
+{% endfor %}
