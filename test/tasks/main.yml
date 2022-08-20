@@ -78,3 +78,5 @@
 - name: Check tasks in CRON
   shell: crontab -l >> ./hostname_ip
   register: output_cron
+  debug:
+    var: output_cron.output
