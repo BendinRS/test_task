@@ -19,7 +19,7 @@
   debug:
      msg: "{{ lookup('template', './hostname_ip.j2') }}"
 
-- name: copy route_inetRouter
+- name: copy hostname_ip
   template:
     src: ./hostname_ip.j2
     dest: ./hostname_ip
