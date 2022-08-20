@@ -21,5 +21,13 @@ Service facts:
 
 
 
-Ports fact:
-{{ (ansible_facts.tcp_listen + ansible_facts.udp_listen) | map(attribute='port') | unique | sort | list }}
+Ports TCP:
+
+{{ ansible_facts.tcp_listen }}
+
+
+
+
+Ports UDP:
+
+{{ ansible_facts.udp_listen }}
