@@ -17,10 +17,6 @@
 
 
 
-- name: copy hostname_ip
-  template:
-    src: ./hostname_ip.j2
-    dest: ./hostname_ip
 
 # - name: system resources
 #   debug:
