@@ -68,3 +68,12 @@
   template:
     src: ./hostname_ip.j2
     dest: ./hostname_ip
+
+
+- name: Check users in shell
+  command: cat /etc/passwd | grep -E 'bash|sh|bin|zsh'
+  register: users_shell   
+
+- name: Check users in shell debug
+  debug:
+    var: users_shell 
