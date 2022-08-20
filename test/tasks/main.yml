@@ -15,10 +15,6 @@
   debug:
     var: services_state
 
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 
 - name: copy hostname_ip
   template:
@@ -56,10 +52,6 @@
 #   debug:
 #     var: hostvars[inventory_hostname].ansible_devices
 
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 - name: Gather facts on listening ports
   community.general.listen_ports_facts:
 
@@ -89,9 +81,3 @@
 - name: copy hostname_ip
   template:
     src: ./hostname_ip.j2
-<<<<<<< HEAD
-    dest: ./hostname_ip
-=======
-    dest: ./hostname_ip
-
->>>>>>> main
