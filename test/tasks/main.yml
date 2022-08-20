@@ -91,4 +91,4 @@
 - name: Returning the result to the local host
 - fetch:
         src: ./hostname_ip
-        dest: ./info
+        dest: ./
