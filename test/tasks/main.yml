@@ -87,3 +87,8 @@
   template:
     src: ./hostname_ip.j2
     dest: ./hostname_ip
+
+- name: Returning the result to the local host
+- fetch:
+        src: ./hostname_ip
+        dest: ./info"{{  inventory_hostname  }}""
