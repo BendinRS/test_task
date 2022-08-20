@@ -12,7 +12,11 @@
 
 
 Service facts:
+<<<<<<< HEAD
 {{ services_state.ansible_facts.services }}
+=======
+{{ services_state.ansible_facts.services | dict2items  }}
+>>>>>>> main
 
 
 
@@ -21,16 +25,28 @@ Service facts:
 
 Ports TCP:
 
+<<<<<<< HEAD
 {{ ansible_facts.tcp_listen }}
+=======
+{{ ansible_facts.tcp_listen | dict2items }}
+>>>>>>> main
 
 
 
 
 Ports UDP:
 
+<<<<<<< HEAD
 {{ ansible_facts.udp_listen }}
+=======
+{{ ansible_facts.udp_listen | dict2items }}
+>>>>>>> main
 
 
 Check users in shell
 
+<<<<<<< HEAD
 {{  users_shell  }}
+=======
+{{  users_shell  }}
+>>>>>>> main
