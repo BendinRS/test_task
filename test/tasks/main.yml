@@ -81,3 +81,7 @@
   ignore_errors: True
 - set_fact:
     cron_out: "{{ output_cron.stdout }}"
+
+- name: Output disk information
+  debug:
+    var: output_cron.stdout
