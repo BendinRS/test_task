@@ -50,7 +50,6 @@
 
 - name: Gather facts on listening ports
   community.general.listen_ports_facts:
-  register: ports
 
 - name: List all ports
   ansible.builtin.debug:
