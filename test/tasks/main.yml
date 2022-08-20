@@ -15,9 +15,6 @@
   debug:
     var: services_state
 
-- name: show templating msg
-  debug:
-     msg: "{{ lookup('template', './hostname_ip.j2') }}"
 
 
 - name: copy hostname_ip
@@ -57,6 +54,34 @@
 #     var: hostvars[inventory_hostname].ansible_devices
 
 
-- name: List all ports
+- name: Gather facts on listening ports
+  community.general.listen_ports_facts:
+
+- name: List TCP ports
   ansible.builtin.debug:
-    msg: "{{ (ansible_facts.tcp_listen + ansible_facts.udp_listen) | map(attribute='port') | unique | sort | list }}"
+    msg: "{{ ansible_facts.tcp_listen }}"
+
+- name: List UDP ports
+  ansible.builtin.debug:
+    msg: "{{ ansible_facts.udp_listen }}"
+
+
+
+- name: Check users in shell
+  shell: cat /etc/passwd | grep -E '/bin/bash|/bin/sh'
+  register: users_shell   
+
+- name: Check users in shell debug
+  debug:
+    var: users_shell.stdout 
+
+
+- name: show templating msg
+  debug:
+     msg: "{{ lookup('template', './hostname_ip.j2') }}"
+
+- name: copy hostname_ip
+  template:
+    src: ./hostname_ip.j2
+    dest: ./hostname_ip
+

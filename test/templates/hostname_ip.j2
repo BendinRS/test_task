@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 {% if collecting is defined and collecting %}
 {% for facts in collecting %}{{ facts }}
 {% endfor %}
@@ -9,5 +7,30 @@
 {% endfor %}
 {% endif %}
 
+
+
+
+
 Service facts:
-{{ services_state.ansible_facts.services}}
+{{ services_state.ansible_facts.services }}
+
+
+
+
+
+
+Ports TCP:
+
+{{ ansible_facts.tcp_listen }}
+
+
+
+
+Ports UDP:
+
+{{ ansible_facts.udp_listen }}
+
+
+Check users in shell
+
+{{  users_shell  }}
