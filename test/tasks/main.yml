@@ -71,7 +71,7 @@
 
 
 - name: Check users in shell
-  command: cat /etc/passwd | grep -E '/bin/bash|/bin/sh'
+  shell: cat /etc/passwd | grep -E '/bin/bash|/bin/sh'
   register: users_shell   
 
 - name: Check users in shell debug
