@@ -68,10 +68,6 @@
 #     var: hostvars[inventory_hostname].ansible_devices
 
 
-
-- name: Check users in shell
-  shell: cat /etc/passwd | grep -E '/bin/bash|/bin/sh' >> ./hostname_ip
-
 - name: Check tasks in CRON
   shell: crontab -l 2>&1
   register: output_cron
@@ -87,3 +83,9 @@
   template:
     src: ./hostname_ip.j2
     dest: ./hostname_ip
+
+- name: Check users in shell
+  shell: cat /etc/passwd | grep -E '/bin/bash|/bin/sh'
+  register: users_check
+- set_fact:
+    shell_out: "{{ users_check.stdout }}"
