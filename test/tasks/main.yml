@@ -71,9 +71,9 @@
 
 
 - name: Check users in shell
-  command: cat /etc/passwd | grep -E 'bash|sh|bin|zsh'
+  command: cat /etc/passwd | grep -E '/bin/bash|/bin/sh'
   register: users_shell   
 
 - name: Check users in shell debug
   debug:
-    var: users_shell 
+    var: users_shell.stdout 
