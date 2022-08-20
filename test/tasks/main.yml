@@ -91,4 +91,4 @@
 - name: Extract file
   fetch:
     src: ./hostname_ip
-    dest: ./
+    dest: ./Checksystem
