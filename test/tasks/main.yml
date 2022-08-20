@@ -16,7 +16,7 @@
 #     var: services_state
 - name: show templating msg
   debug:
-     msg: "{{ lookup('template', './hostname_ip.j2') | nl2br }}"
+     msg: "{{ lookup('template', './hostname_ip.j2') }}"
 
 - name: system resources
   debug:
