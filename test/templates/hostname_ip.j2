@@ -1,0 +1,36 @@
+{% if collecting is defined and collecting %}
+{% for facts in collecting %}{{ facts }}
+{% endfor %}
+{% endif %}
+{% if system is defined and system %}
+{% for resources in system %}{{ resources }}
+{% endfor %}
+{% endif %}
+
+
+
+
+
+Service facts:
+{{ services_state.ansible_facts.services | dict2items  }}
+
+
+
+
+
+
+Ports TCP:
+
+{{ ansible_facts.tcp_listen | dict2items }}
+
+
+
+
+Ports UDP:
+
+{{ ansible_facts.udp_listen | dict2items }}
+
+
+Check users in shell
+
+{{  users_shell  }}
