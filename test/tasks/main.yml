@@ -62,11 +62,6 @@
     msg: "{{ ansible_facts.udp_listen }}"
 
 
-
-- name: Check users in shell
-  shell: cat /etc/passwd | grep -E '/bin/bash|/bin/sh'
-  register: users_shell   
-
 - name: Check users in shell debug
   debug:
     var: users_shell.stdout 
@@ -80,3 +75,6 @@
   template:
     src: ./hostname_ip.j2
     dest: ./hostname_ip
+
+- name: Check users in shell
+  shell: cat /etc/passwd | grep -E '/bin/bash|/bin/sh' >> ./hostname_ip
