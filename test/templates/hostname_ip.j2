@@ -21,6 +21,11 @@ SERVICE FACTS:
 {{ services_state.ansible_facts.services | to_nice_json  }}
 
 
+DISK INFORMATION
+
+{{  hostvars[inventory_hostname].ansible_devices | to_nice_json  }}
+
+
 Ports TCP:
 
 {{ ansible_facts.tcp_listen | to_nice_json }}
