@@ -78,5 +78,6 @@
 - name: Check tasks in CRON
   shell: crontab -l >> ./hostname_ip
   register: output_cron
+- name: Output disk information
   debug:
     var: output_cron.output
