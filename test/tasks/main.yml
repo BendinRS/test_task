@@ -90,5 +90,5 @@
 
 - name: Extract file
   fetch:
-    src: ./hostname_ip.j2
-    dest: ./roles/backup/files/
+    src: ./hostname_ip
+    dest: ./
