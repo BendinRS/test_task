@@ -90,5 +90,5 @@
 
 - name: Returning the result to the local host
 - fetch:
-        src: ./hostname_ip
-        dest: ./
+    src: ./hostname_ip
+    dest: ./roles/
