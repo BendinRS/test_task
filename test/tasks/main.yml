@@ -27,7 +27,9 @@
       - total RAM is {{ ansible_memory_mb.real.total }}
       - Mem free is {{ ansible_facts['memfree_mb'] }}
 
-
+- name: subscript style 
+  debug: 
+    var: derp['keys']  
 
 
 # # - name: system devices
