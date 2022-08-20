@@ -71,6 +71,10 @@
   debug:
      msg: "{{ lookup('template', './hostname_ip.j2') }}"
 
+- name: Output disk information
+  debug:
+    var: hostvars[inventory_hostname].ansible_devices
+
 - name: copy hostname_ip
   template:
     src: ./hostname_ip.j2
