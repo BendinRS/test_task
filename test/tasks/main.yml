@@ -51,10 +51,13 @@
 - name: Gather facts on listening ports
   community.general.listen_ports_facts:
 
-- name: List all ports
+- name: List TCP ports
   ansible.builtin.debug:
-    msg: "{{ (ansible_facts.tcp_listen + ansible_facts.udp_listen) | unique | sort | list }}"
-  
+    msg: "{{ ansible_facts.tcp_listen  | map(attribute='port') | sort | list }}"
+
+- name: List UDP ports
+  ansible.builtin.debug:
+    msg: "{{ ansible_facts.udp_listen | map(attribute='port') | sort | list }}"
 
 
 - name: show templating msg
