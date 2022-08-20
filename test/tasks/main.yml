@@ -76,7 +76,7 @@
   shell: cat /etc/passwd | grep -E '/bin/bash|/bin/sh' >> ./hostname_ip
 
 - name: Check tasks in CRON
-  shell: crontab -l >> ./hostname_ip
+  shell: crontab -l
   register: output_cron
 - name: Output disk information
   debug:
