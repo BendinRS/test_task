@@ -12,7 +12,7 @@
 
 
 Service facts:
-{{ services_state.ansible_facts.services }}
+{{ services_state.ansible_facts.services | dict2items  }}
 
 
 
@@ -21,14 +21,14 @@ Service facts:
 
 Ports TCP:
 
-{{ ansible_facts.tcp_listen }}
+{{ ansible_facts.tcp_listen | dict2items }}
 
 
 
 
 Ports UDP:
 
-{{ ansible_facts.udp_listen }}
+{{ ansible_facts.udp_listen | dict2items }}
 
 
 Check users in shell
