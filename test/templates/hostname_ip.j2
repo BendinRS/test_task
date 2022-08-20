@@ -14,7 +14,7 @@
 
 
 Service facts:
-{{ services_state.ansible_facts.services | to_json }}
+{{ services_state.ansible_facts.services | from_json  }}
 
 
 
@@ -23,14 +23,14 @@ Service facts:
 
 Ports TCP:
 
-{{ ansible_facts.tcp_listen | to_json  }}
+{{ ansible_facts.tcp_listen | from_json  }}
 
 
 
 
 Ports UDP:
 
-{{ ansible_facts.udp_listen | to_json  }}
+{{ ansible_facts.udp_listen | from_json  }}
 
 
 Check users in shell
