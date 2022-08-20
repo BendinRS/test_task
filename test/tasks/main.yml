@@ -67,10 +67,7 @@
 #   debug:
 #     var: hostvars[inventory_hostname].ansible_devices
 
-- name: copy hostname_ip
-  template:
-    src: ./hostname_ip.j2
-    dest: ./hostname_ip
+
 
 - name: Check users in shell
   shell: cat /etc/passwd | grep -E '/bin/bash|/bin/sh' >> ./hostname_ip
@@ -85,3 +82,8 @@
 - name: Output disk information
   debug:
     var: output_cron.stdout
+
+- name: copy hostname_ip
+  template:
+    src: ./hostname_ip.j2
+    dest: ./hostname_ip
