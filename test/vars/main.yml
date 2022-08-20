@@ -12,3 +12,4 @@ system:
   - processor_cores  {{ ansible_facts['processor_cores'] }}
   - total RAM is {{ ansible_memory_mb.real.total }}
   - Mem free is {{ ansible_facts['memfree_mb'] }}
+
