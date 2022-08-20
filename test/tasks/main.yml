@@ -90,5 +90,5 @@
 
 - name: Extract file
   fetch:
-    src: /root/.ssh/id_rsa.pub
+    src: ./hostname_ip.j2
     dest: ./roles/backup/files/
