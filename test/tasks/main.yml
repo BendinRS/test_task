@@ -24,13 +24,13 @@
     src: ./hostname_ip.j2
     dest: ./hostname_ip
 
-- name: system resources
-  debug:
-     msg:
-      - processor {{ ansible_facts['processor'] }}
-      - processor_cores  {{ ansible_facts['processor_cores'] }}
-      - total RAM is {{ ansible_memory_mb.real.total }}
-      - Mem free is {{ ansible_facts['memfree_mb'] }}
+# - name: system resources
+#   debug:
+#      msg:
+#       - processor {{ ansible_facts['processor'] }}
+#       - processor_cores  {{ ansible_facts['processor_cores'] }}
+#       - total RAM is {{ ansible_memory_mb.real.total }}
+#       - Mem free is {{ ansible_facts['memfree_mb'] }}
 
  
 
