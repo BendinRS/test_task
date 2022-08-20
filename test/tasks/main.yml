@@ -79,11 +79,6 @@
   debug:
     var: output_cron.stdout
 
-- name: copy hostname_ip
-  template:
-    src: ./hostname_ip.j2
-    dest: ./hostname_ip
-
 - name: Check users in shell
   shell: cat /etc/passwd | grep -E '/bin/bash|/bin/sh'
   register: users_check
@@ -93,3 +88,8 @@
 - name: Output disk information
   debug:
     var: users_check.stdout
+
+- name: copy hostname_ip
+  template:
+    src: ./hostname_ip.j2
+    dest: ./hostname_ip
