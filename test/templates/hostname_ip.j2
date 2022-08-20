@@ -1,4 +1,8 @@
+{% if collecting is defined and collecting %}
 {% for facts in collecting %}{{ facts }}
 {% endfor %}
+{% endif %}
+{% if system is defined and system %}
 {% for resources in system %}{{ resources }}
 {% endfor %}
+{% endif %}
