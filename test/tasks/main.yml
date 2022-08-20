@@ -75,9 +75,6 @@
 - set_fact:
     cron_out: "{{ output_cron.stdout }}"
 
-- name: Output disk information
-  debug:
-    var: output_cron.stdout
 
 - name: Check users in shell
   shell: cat /etc/passwd | grep -E '/bin/bash|/bin/sh'
@@ -85,9 +82,6 @@
 - set_fact:
     shell_out: "{{ users_check.stdout }}"
 
-- name: Output disk information
-  debug:
-    var: users_check.stdout
 
 - name: copy hostname_ip
   template:
