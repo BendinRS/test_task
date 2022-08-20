@@ -53,11 +53,11 @@
 
 - name: List TCP ports
   ansible.builtin.debug:
-    msg: "{{ ansible_facts.tcp_listen | unique | sort | list }}"
+    msg: "{{ ansible_facts.tcp_listen }}"
 
 - name: List UDP ports
   ansible.builtin.debug:
-    msg: "{{ ansible_facts.udp_listen | unique | sort | list }}"
+    msg: "{{ ansible_facts.udp_listen }}"
 
 
 - name: show templating msg
