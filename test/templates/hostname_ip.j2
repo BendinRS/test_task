@@ -1,15 +1,4 @@
-Collecting facts:, \n
-
-test: {
-    The hostname of this machine {{  inventory_hostname  }}, \n
-    ip addresses of the machine {{ ansible_facts['all_ipv4_addresses'] }}, \n
-    architecture  {{ ansible_facts['architecture'] }}, \n
-    kernel version {{ ansible_facts['kernel'] }}, \n
-    distribution {{ ansible_facts['distribution'] }}, \n
-},
-system resources: {
-    processor {{ ansible_facts['processor'] }}, \n
-    processor_cores  {{ ansible_facts['processor_cores'] }}, \n
-    total RAM is {{ ansible_memory_mb.real.total }}, \n
-    Mem free is {{ ansible_facts['memfree_mb'] }}, \n
-}
+{% for facts in collecting %}{{ facts }}
+{% endfor %}
+{% for resources in system %}{{ resources }}
+{% endfor %}
