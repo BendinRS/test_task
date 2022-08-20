@@ -1,8 +1,13 @@
-#jinja2: lstrip_blocks: "True", trim_blocks: "True"
-<div>
-        The hostname of this machine {{  inventory_hostname  }} <br> 
-        ip addresses of the machine: {{ ansible_facts['all_ipv4_addresses'] }} <br> 
-        architecture  {{ ansible_facts['architecture'] }} <br> 
-        kernel version {{ ansible_facts['kernel'] }} <br> 
-</div>
+# -*- coding: utf-8 -*-
 
+{% if collecting is defined and collecting %}
+{% for facts in collecting %}{{ facts }}
+{% endfor %}
+{% endif %}
+{% if system is defined and system %}
+{% for resources in system %}{{ resources }}
+{% endfor %}
+{% endif %}
+
+Service facts:
+{{ services_state.ansible_facts.services}}
