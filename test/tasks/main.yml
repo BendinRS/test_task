@@ -69,7 +69,7 @@
 
 
 - name: Check tasks in CRON
-  shell: crontab -l 2>&1
+  shell: "for user in $(cat /etc/passwd | grep -E '/bin/bash|/bin/sh' | awk -F: '{ print $1}'); do crontab -u $user -l; done 2>&1"
   register: output_cron
   ignore_errors: True
 - set_fact:
