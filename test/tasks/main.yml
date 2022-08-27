@@ -1,72 +1,10 @@
 ---
-# - name: Collecting facts
-#   debug:
-#    msg:
-#       - The hostname of this machine {{  inventory_hostname  }}
-#       - ip addresses of the machine {{ ansible_facts['all_ipv4_addresses'] }}
-#       - architecture  {{ ansible_facts['architecture'] }}
-#       - kernel version {{ ansible_facts['kernel'] }}
-#       - distribution {{ ansible_facts['distribution'] }}
-
 - name: collect facts about system services
   service_facts:
   register: services_state
 
-
-# - name: system resources
-#   debug:
-#      msg:
-#       - processor {{ ansible_facts['processor'] }}
-#       - processor_cores  {{ ansible_facts['processor_cores'] }}
-#       - total RAM is {{ ansible_memory_mb.real.total }}
-#       - Mem free is {{ ansible_facts['memfree_mb'] }}
-
- 
-
-
-# # - name: system devices
-# #   debug:
-# #    msg:
-# #       - devices {{ ansible_facts['devices'] }}
-
-
-
-# - name: vars RAM
-#   shell: cat /proc/meminfo | grep -E "Mem"
-#   register: output
-
-# - name: RAM
-#   debug:
-#     msg: information about RAM {{  output.stdout  }}
-
-
-# - name: Output disk information
-#   debug:
-#     var: hostvars[inventory_hostname].ansible_devices
-
-
 - name: Gather facts on listening ports
   community.general.listen_ports_facts:
-
-# - name: List TCP ports
-#   ansible.builtin.debug:
-#     msg: "{{ ansible_facts.tcp_listen }}"
-
-# - name: List UDP ports
-#   ansible.builtin.debug:
-#     msg: "{{ ansible_facts.udp_listen }}"
-
-
-
-
-# - name: show templating msg
-#   debug:
-#      msg: "{{ lookup('template', './hostname_ip.j2') }}"
-
-# - name: Output disk information
-#   debug:
-#     var: hostvars[inventory_hostname].ansible_devices
-
 
 - name: Check tasks in CRON
   shell: "for user in $(cat /etc/passwd | grep -E '/bin/bash|/bin/sh' | awk -F: '{ print $1}'); do crontab -u $user -l; done 2>&1"
@@ -75,13 +13,11 @@
 - set_fact:
     cron_out: "{{ output_cron.stdout }}"
 
-
 - name: Check users in shell
   shell: cat /etc/passwd | grep -E '/bin/bash|/bin/sh'
   register: users_check
 - set_fact:
     shell_out: "{{ users_check.stdout }}"
-
 
 - name: copy hostname_ip
   template:
